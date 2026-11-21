@@ -69,18 +69,18 @@ return (
                 </button>
               </th>
               <td className="px-4 py-2">
-                <span className="inline-flex min-w-16 justify-center border border-oxford-navy bg-ink-black px-3 py-1 font-mono font-semibold tabular-nums text-school-bus-yellow">
+                <span className="inline-flex min-w-16 justify-center border border-oxford-navy bg-slate-600 px-3 py-1 font-mono font-semibold tabular-nums text-school-bus-yellow">
                   {process.arrivalTime}
                 </span>
               </td>
               <td className="px-4 py-2">
-                <span className="inline-flex min-w-16 justify-center border border-oxford-navy bg-ink-black px-3 py-1 font-mono font-semibold tabular-nums text-school-bus-yellow">
+                <span className="inline-flex min-w-16 justify-center border border-oxford-navy bg-slate-600 px-3 py-1 font-mono font-semibold tabular-nums text-school-bus-yellow">
                   {process.burstTime}
                 </span>
               </td>
               {showPriority && (
                 <td className="px-4 py-2">
-                  <span className="inline-flex min-w-16 justify-center border border-oxford-navy bg-ink-black px-3 py-1 font-mono font-semibold tabular-nums text-school-bus-yellow">
+                  <span className="inline-flex min-w-16 justify-center border border-oxford-navy bg-slate-600 px-3 py-1 font-mono font-semibold tabular-nums text-school-bus-yellow">
                     {process.priority}
                   </span>
                 </td>
