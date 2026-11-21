@@ -1,0 +1,306 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-black: #10121e;
+  --color-prussian-blue: #1a2033;
+  --color-oxford-navy: #34394f;
+  --color-school-bus-yellow: #f5f2ea;
+  --color-gold: #aeb8c9;
+  --color-accent: #55e0c2;
+  --color-accent-hover: #7cebd1;
+  --color-accent-secondary: #ae8bff;
+  --color-accent-coral: #ff8e9e;
+  --color-accent-amber: #ffbd69;
+  --color-accent-blue: #7db8ff;
+  --color-accent-green: #a7e58d;
+  --color-error: #ff9a9a;
+  --font-display: "Bree Serif", Georgia, serif;
+}
+
+:root {
+  color: var(--color-school-bus-yellow);
+  background: var(--color-ink-black);
+  font-family: Arial, Helvetica, sans-serif;
+  font-synthesis: weight;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+::selection {
+  color: var(--color-ink-black);
+  background-color: var(--color-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.page-container {
+  width: 100%;
+  max-width: 112.5rem;
+  margin-inline: auto;
+}
+
+.visualizer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+  padding: 2rem 1.25rem;
+}
+
+.display-title {
+  margin-top: 2rem;
+  width: 100%;
+  background-image: linear-gradient(
+    110deg,
+    var(--color-accent) 0%,
+    var(--color-accent-secondary) 52%,
+    var(--color-accent-coral) 100%
+  );
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(2.75rem, 7vw, 7.5rem);
+  font-weight: 900;
+  line-height: 0.86;
+  letter-spacing: -0.055em;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-label {
+  font-size: 0.6875rem;
+}
+
+.tracking-eyebrow {
+  letter-spacing: 0.12em;
+}
+
+.tracking-kicker {
+  letter-spacing: 0.14em;
+}
+
+.section-kicker--algorithm {
+  color: var(--color-accent-secondary);
+}
+
+.section-kicker--input {
+  color: var(--color-accent-coral);
+}
+
+.section-kicker--queue {
+  color: var(--color-accent-blue);
+}
+
+.section-kicker--timeline {
+  color: var(--color-accent);
+}
+
+.algorithm-tab {
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  padding: 0.75rem 0.5rem;
+  color: var(--color-gold);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.algorithm-tab:hover {
+  color: var(--color-school-bus-yellow);
+}
+
+.algorithm-tab--preemptive.is-active {
+  border-bottom-color: var(--color-accent);
+  color: var(--color-school-bus-yellow);
+}
+
+.algorithm-tab--non-preemptive.is-active {
+  border-bottom-color: var(--color-accent-coral);
+  color: var(--color-school-bus-yellow);
+}
+
+.priority-note {
+  border-left: 4px solid var(--color-accent-secondary);
+  padding-left: 1rem;
+}
+
+.playback-button {
+  background-color: var(--color-accent-secondary);
+}
+
+.playback-button:not(:disabled):hover {
+  background-color: #c1a8ff;
+}
+
+.playback-button:disabled {
+  background-color: var(--color-oxford-navy);
+  color: var(--color-gold);
+}
+
+.process-table {
+  min-width: 35rem;
+}
+
+@media (min-width: 40rem) {
+  .visualizer-layout {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .visualizer-layout {
+    grid-template-columns: minmax(17.5rem, 0.72fr) minmax(0, 1.8fr);
+    gap: 3.5rem;
+    padding: 3rem;
+  }
+}
+
+.visualizer-shell::before {
+  position: fixed;
+  z-index: 0;
+  inset: -18%;
+  background:
+    radial-gradient(ellipse at 18% 18%, rgb(85 224 194 / 11%), transparent 42%),
+    radial-gradient(ellipse at 82% 72%, rgb(174 139 255 / 10%), transparent 46%),
+    radial-gradient(ellipse at 78% 12%, rgb(255 142 158 / 7%), transparent 36%);
+  content: "";
+  pointer-events: none;
+  animation: ambient-drift 28s ease-in-out infinite alternate;
+}
+
+.visualizer-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.gantt-scroll-viewport {
+  scrollbar-color: var(--color-oxford-navy) var(--color-ink-black);
+  scrollbar-width: thin;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.process-row {
+  background-color: color-mix(
+    in srgb,
+    var(--process-color) 16%,
+    var(--color-prussian-blue)
+  );
+}
+
+.process-row:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--process-color) 24%,
+    var(--color-prussian-blue)
+  );
+}
+
+.process-row[data-selected="true"] {
+  background-color: color-mix(
+    in srgb,
+    var(--process-color) 34%,
+    var(--color-prussian-blue)
+  );
+  box-shadow: inset 4px 0 var(--process-color);
+}
+
+.process-select-button {
+  color: var(--color-school-bus-yellow);
+}
+
+.process-select-button[aria-pressed="true"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.gantt-process-segment {
+  color: var(--process-text-color);
+  background-color: var(--process-color);
+}
+
+.gantt-idle-segment {
+  color: var(--color-gold);
+  background-color: var(--color-prussian-blue);
+}
+
+.gantt-segment-label {
+  display: inline-block;
+  position: relative;
+  z-index: 11;
+  white-space: nowrap;
+}
+
+.gantt-process-segment .gantt-segment-label {
+  background-color: color-mix(
+    in srgb,
+    var(--process-color) 45%,
+    var(--color-ink-black)
+  );
+}
+
+.gantt-segment.is-selected {
+  box-shadow: inset 0 0 0 3px var(--color-accent-secondary);
+}
+
+.gantt-segment.is-active {
+  box-shadow:
+    inset 0 0 0 3px var(--color-ink-black),
+    inset 0 0 0 5px var(--color-accent);
+  animation: active-segment-pulse 700ms ease-in-out infinite alternate;
+}
+
+@keyframes active-segment-pulse {
+  from {
+    filter: brightness(1);
+  }
+
+  to {
+    filter: brightness(0.82);
+  }
+}
+
+.gantt-axis {
+  position: relative;
+}
+
+@keyframes ambient-drift {
+  from {
+    transform: translate3d(-1%, -0.5%, 0);
+  }
+
+  to {
+    transform: translate3d(1%, 0.5%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visualizer-shell::before {
+    animation: none;
+  }
+
+  .gantt-segment.is-active {
+    animation: none;
+  }
+}
