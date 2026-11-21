@@ -8,7 +8,9 @@ A visualizer for comparing different CPU scheduling algorithms. Built with Vite 
 
 *SRTF visualization with process highlighting and a completed Gantt chart playback.*
 
-(screenshots/round-robin-screenshot.png)
+screenshots/round-robin-screenshot.png
+
+
 ## Implemented algorithms
 
 - **FCFS** (First-Come, First-Served): runs processes in arrival order and does not preempt an active process.
