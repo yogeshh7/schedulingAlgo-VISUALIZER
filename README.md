@@ -8,7 +8,8 @@ A visualizer for comparing different CPU scheduling algorithms. Built with Vite 
 
 *SRTF visualization with process highlighting and a completed Gantt chart playback.*
 
-screenshots/round-robin-screenshot.png
+![Round Robin ](screenshots/round-robin-screenshot.png)
+
 
 
 ## Implemented algorithms
